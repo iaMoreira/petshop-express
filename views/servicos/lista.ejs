@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PETSHOP DH</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous">
+</head>
+
+<body>
+    <%- include('../partials/header') %>
+    
+    <main class="container d-block">
+
+        <div>
+            <h1>Serviços - <small>Seja bem-vindo, <%= usuario.nome %> </small></h1>
+        </div>
+        <div class="my-3">
+            <a class="btn btn-primary"  href="/servicos/cadastro" >Cadastrar</a>
+        </div>
+        <div>
+            <table class="table table-dark table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Avatar</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Valor</th>
+                    <th scope="col">Ações</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <% servicos.forEach(servico => { %> 
+                        <tr>
+                            <th> <%= servico.id %>  </th>
+                            <th> <img src="<%= servico.avatar %>" height="100px">  </th>
+                            <td> <%= servico.nome %> </td>
+                            <td> <%= servico.valor.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}); %></td>
+                            <td>
+                                <div class="d-flex justify-content-evenly">
+                                    <a class="btn btn-primary"  href="/servicos/<%= servico.id %>/edit" >Editar</a>
+                                    <form action="/servicos/<%= servico.id %>?_method=DELETE" method="post">
+                                        <button type="submit" class="btn btn-danger">Deletar</button>
+                                    </form>
+                                </div>
+                            </td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        </div>
+    </main>
+    
+    <%- include('../partials/footer') %>
+    
+</body>
+
+</html>
