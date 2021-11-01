@@ -18,7 +18,9 @@
             <h1>
                 Editar Serviço
             </h1>
-            <form action="/servicos/<%= servico.id %>?_method=PUT" method="post">
+            <form action="/servicos/<%= servico.id %>?_method=PUT" method="post" enctype="multipart/form-data">
+              <input type="file" class="form-control-file" name="avatar"  accept="image/png, image/jpeg">
+
                 <div class="mb-3">
                   <label for="exampleInputEmail1" class="form-label">Nome: </label>
                   <input type="text" value="<%= servico.nome %>" name="nome" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
