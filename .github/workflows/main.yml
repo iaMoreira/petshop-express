@@ -4,7 +4,10 @@ on: push
 jobs: 
   build:
     name: Node Build
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     steps: 
-      - uses: actions/checkout@v2
-      - uses: ./.github/actions/node
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Install modules
+        uses: ./.github/actions/node
