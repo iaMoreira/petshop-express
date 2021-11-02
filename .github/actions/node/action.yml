@@ -1,0 +1,5 @@
+name: 'node-install'
+description: 'run npm install'
+run: 
+  using: 'Docker'
+  image: 'Dockerfile'
