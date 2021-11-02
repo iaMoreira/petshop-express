@@ -1,0 +1,10 @@
+name: Petshop workflow
+on: push
+
+jobs: 
+  build:
+    name: Node Build
+    runs-on: ubuntu-18-04
+    steps: 
+      - uses: actions/checout@v1
+      
