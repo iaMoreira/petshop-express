@@ -1,5 +1,5 @@
 name: Petshop workflow
-on: push
+# on: push
 
 jobs: 
   build:
